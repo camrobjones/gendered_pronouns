@@ -1,4 +1,4 @@
-# Effect of Non-Gendered Pronoun "They" on Attitudes
+# Effect of Non-Gendered Pronouns on Attitudes to Women and the LGBT community.
 
 ## Todo
 
