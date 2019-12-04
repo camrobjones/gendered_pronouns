@@ -1,0 +1,30 @@
+{% extends 'gender_base.html' %}
+
+{% block content %}
+
+<form action="/gender/profemale">
+
+<p>In the next section, you will be asked to name individuals who can be classified under specific categories. Please answer these items as best as you can. </p>
+
+{% for question in questions %}
+
+<div class='question'>
+
+    <h3 class='question-title'>{{question.title}}</h3>
+
+    <input type='text' class='text-input'>
+
+</div>
+
+{% endfor %}
+
+
+<div class='button-container'>
+    <input type='submit' value="Next" class='btn btn-dark' id="next">
+</div>
+
+</form>
+
+
+{% endblock %}
+

@@ -1,0 +1,49 @@
+{% extends 'gender_base.html' %}
+
+{% block content %}
+
+<form action="/gender/finish">
+
+{% for question in questions %}
+
+<div class='question'>
+
+    <h3 class='question-title'>{{question.title}}</h3>
+
+    <p>{{question.blurb}}</p>
+
+    <p> Where would you place yourself on the scale below?</p>
+
+    <div class="range-container">
+
+        <div class='range-label-container'>
+            <span class='range-label'> {{question.min}}</span>
+            <span class='range-label right'> {{question.max}}</span>
+        </div>
+
+        <div class='scale'>
+        {% for i in '1234567'|make_list %}
+            <div class="scale-mark">
+                 <label for='{{question_id}}_{{i}}'>{{i}})</label>
+                 <input type='radio' name='{{question.question_id}}' id='{{question_id}}_{{i}}'/>
+            </div>
+        {% endfor %}
+        </div>
+
+    </div>
+
+
+</div>
+
+{% endfor %}
+
+
+<div class='button-container'>
+    <input type='submit' value="Next" class='btn btn-dark' id="next">
+</div>
+
+</form>
+
+
+{% endblock %}
+

@@ -1,0 +1,116 @@
+
+/* General */
+
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+main {
+    margin:20px auto;
+    border-radius: 7px;
+    max-width:800px;
+    width:80%;
+    background: #f3f3f375;
+    padding: 20px 40px;
+    box-shadow: 0px 0px 6px 2px #ccc;
+}
+
+nav {
+    background-color: #f2f3f4;
+    box-shadow: 0px 0px 5px 2px #ccc;
+}
+
+.question {
+    margin: 0px 0px 25px 0px;
+}
+
+
+.question-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.button-container {
+    display:flex;
+}
+
+#next {
+    margin-left:auto;
+    float:right;
+}
+
+.radio-option input {
+    margin-right: 10px;
+}
+
+/* Treatment */
+
+.treatment_stimulus {
+    max-width:100%;
+    border: 2px solid #ccc;
+    margin-bottom:25px;
+}
+
+.treatment-container {
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+}
+
+.treatment-label {
+    margin-right: 6px;
+    padding-top: 2px;
+}
+
+.inline-input {
+    flex: 1 0 auto;
+    height: 2em;
+    resize:none;
+}
+
+/* Mediator */
+
+.mediator-textarea {
+    width: 100%;
+    resize:none;
+    margin-bottom: 25px;
+}
+
+blockquote {
+    margin-left: 20px
+}
+
+/* Post-Questionnaire */
+
+.text-input {
+    width: 80%;
+}
+
+.input-range {
+    width:100%;
+}
+
+.range-label-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.scale {
+    display: flex;
+    justify-content: space-between;
+}
+
+.range-label {
+    font-weight: bold;
+    max-width: 30%;
+    font-size: 14px;
+}
+
+.right {
+    text-align:right;
+}
+
+.range-container {
+    background: #e6e6e6;
+    padding: 10px;
+}

@@ -1,0 +1,150 @@
+{
+    "qualifier": [
+        { "question_id": "1",
+           "title": "Where were you born",
+           "options": [
+                    "U.S.A.",
+                    "Other"
+                    ]
+        },
+
+        { "question_id": "2",
+           "title": "Where were your parents born?",
+           "options": [
+                    "U.S.A.",
+                    "Other"
+                    ]
+        },
+
+        { "question_id": "3",
+           "title": "What do you consider to be your native language?",
+           "options":[
+                    "English",
+                    "Other"
+                    ]
+        }
+    ],
+
+    "demographics": [
+        { "question_id": "2",
+           "title": "What is the highest level of education you have recieved?",
+           "options": [
+                    "I did not graduate High School",
+                    "High School",
+                    "Associate Degree",
+                    "Bachelor's Degree",
+                    "Masters, PhD, Professional Degree",
+                    "Prefer not to say"
+                    ]
+        },
+
+        { "question_id": "4",
+           "title": "Generally speaking, do you think of yourself as a Democrat, Republican, an Independent, or something else?",
+           "options": [
+                    "Democrat",
+                    "Republican",
+                    "Independent",
+                    "None of the above",
+                    "Prefer not to say"
+                    ]
+        },
+
+        { "question_id": "5",
+           "title": "What is your gender?",
+           "options":[
+                    "Female",
+                    "Male",
+                    "Non-binary",
+                    "Prefer not to say"
+                    ]
+        }
+    ],
+
+    "female_politicians": [
+        { "question_id": "1",
+           "title": "Please name a current member of Congress"
+        },
+
+        { "question_id": "2",
+           "title": "Please name an effective leader in world politics today."
+        },
+
+        { "question_id": "3",
+           "title": "Please name a U.S. politician who you find inspiring"
+        }
+    ],
+
+    "profemale": [
+        { "question_id": "1",
+           "title": "Recruit more women to Ministerial positions"
+        },
+
+        { "question_id": "2",
+           "title": "Increase the number of women on the Senate Committee on Defense"
+        },
+
+        { "question_id": "3",
+           "title": "Appoint a well-qualified woman to be Minister of Gender Equality"
+        },
+
+        { "question_id": "4",
+           "title": "Boost the number of women on the Senate Committee on Health and Welfare"
+        },
+        { "question_id": "5",
+           "title": "Recruit more men to Ministerial positions"
+        },
+
+        { "question_id": "6",
+           "title": "Increase the number of men on the Senate Committee on Defense"
+        },
+
+        { "question_id": "7",
+           "title": "Appoint a well-qualified man to be Minister of Gender Equality"
+        },
+
+        { "question_id": "8",
+           "title": "Boost the number of men on the Senate Committee on Health and Welfare"
+        }
+    ],
+
+    "lgbt": [
+        { "question_id": "1",
+           "title": "Homosexual people"
+        },
+
+        { "question_id": "2",
+           "title": "Transgender people"
+        }
+    ],
+
+    "lgbt_social": [
+        { "question_id": "1",
+           "blurb": "Some people argue that same-sex marriages are harmful to society. Other people argue that same-sex marriages are beneficial to society. Still others are somewhere in between.",
+           "title": "Same-sex marriage",
+           "min": "Same-sex marriages are harmful to society",
+           "max": "Same-sex marriages are beneficial to society."
+        },
+
+        { "question_id": "2",
+           "blurb": "Some people argue that same-sex couples cannot successfully raise children. Other people argue that same-sex couples can successfully raise children. Still others are somewhere in between.",
+           "title": "Raising children",
+           "min": "Same-sex couples cannot successfully raise children.",
+           "max": "Same-sex couples can successfully raise children."
+        },
+
+        { "question_id": "3",
+           "blurb": "Some people argue that gays and lesbians should be encouraged to run for seats in congress. Other people argue that gays and lesbians should be discouraged to run for seats in congress. Still others are somewhere in between.",
+           "title": "Running for office",
+           "min": "Gay and lesbian people should be discouraged to run for seats in congress.",
+           "max": "Gay and lesbian people should be encouraged to run for seats in congress."
+        },
+
+        { "question_id": "4",
+           "blurb": "Some people argue that fewer gays and lesbians should be considered for ministerial positions. Other people argue that more gays and lesbians should be considered for ministerial positions. Still others are somewhere in between. ",
+           "title": "Ministerial positions",
+           "min": "Fewer gay and lesbian people should be considered for ministerial positions.",
+           "max": "More gay and lesbian people should be considered for ministerial positions."
+        }
+    ]
+
+}

@@ -1,0 +1,35 @@
+{% extends 'gender_base.html' %}
+
+{% block content %}
+
+<form action="/gender/demographics">
+
+{% for question in questions %}
+
+<div class='question'>
+
+    <h3 class='question-title'>{{question.title}}</h3>
+
+    {% for option in question.options %}
+    <div class='radio-option'>
+        <input type='radio' name='{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}'/>
+        <label for='{{question_id}}_{{forloop.counter}}'>{{forloop.counter}}) {{option}}</label>
+    </div>
+
+
+    {% endfor %}
+
+</div>
+
+{% endfor %}
+
+
+<div class='button-container'>
+    <input type='submit' value="Next" class='btn btn-dark' id="next">
+</div>
+
+</form>
+
+
+{% endblock %}
+
