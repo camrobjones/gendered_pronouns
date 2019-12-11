@@ -2,13 +2,13 @@
 
 {% block content %}
 
-<form action="/gender/treatment">
+<form action="/gender/finish">
 
 <div class='question'>
 
-    <h3 class='question-title'>What is your date of birth?</h3>
+    <h3 class='question-title'>How old are you?</h3>
 
-    <input type="date" format="mm/dd/yyyy">
+    <input type="number" min="0" max="120" style="width:100px" required>
 
 </div>
 
@@ -20,7 +20,7 @@
 
     {% for option in question.options %}
     <div class='radio-option'>
-        <input type='radio' name='{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}'/>
+        <input type='radio' name='{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}' required/>
         <label for='{{question_id}}_{{forloop.counter}}'>{{forloop.counter}}) {{option}}</label>
     </div>
 

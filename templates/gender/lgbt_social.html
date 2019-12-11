@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form action="/gender/finish">
+<form action="/gender/qualifier">
 
 {% for question in questions %}
 
@@ -25,7 +25,7 @@
         {% for i in '1234567'|make_list %}
             <div class="scale-mark">
                  <label for='{{question_id}}_{{i}}'>{{i}})</label>
-                 <input type='radio' name='{{question.question_id}}' id='{{question_id}}_{{i}}'/>
+                 <input type='radio' name='{{question.question_id}}' id='{{question_id}}_{{i}}' required/>
             </div>
         {% endfor %}
         </div>

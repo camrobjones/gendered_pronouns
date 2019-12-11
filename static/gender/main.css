@@ -59,13 +59,20 @@ nav {
 
 .treatment-label {
     margin-right: 6px;
-    padding-top: 2px;
+    padding-top: 3px;
+    position:absolute;
+    margin-left:6px;
+    color:black;
 }
 
 .inline-input {
     flex: 1 0 auto;
     height: 2em;
     resize:none;
+}
+
+.inline-input:disabled {
+    background: #dbd9d9b3;
 }
 
 /* Mediator */

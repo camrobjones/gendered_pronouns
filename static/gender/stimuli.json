@@ -1,7 +1,7 @@
 {
     "qualifier": [
         { "question_id": "1",
-           "title": "Where were you born",
+           "title": "Where were you born?",
            "options": [
                     "U.S.A.",
                     "Other"
@@ -66,17 +66,31 @@
         },
 
         { "question_id": "2",
-           "title": "Please name an effective leader in world politics today."
+           "title": "Please name an effective leader in world politics today"
         },
 
         { "question_id": "3",
            "title": "Please name a U.S. politician who you find inspiring"
+        },
+        { "question_id": "3",
+           "title": "Please name a scientist or academic"
+        },
+
+        { "question_id": "4",
+           "title": "Please name a leader in the business world"
+        },
+
+        { "question_id": "5",
+           "title": "Please name an author or writer who you admire"
+        },
+        { "question_id": "6",
+           "title": "Please name a leader in activism or the charity sector"
         }
     ],
 
     "profemale": [
         { "question_id": "1",
-           "title": "Recruit more women to Ministerial positions"
+           "title": "Recruit more women to Government positions"
         },
 
         { "question_id": "2",
@@ -84,14 +98,14 @@
         },
 
         { "question_id": "3",
-           "title": "Appoint a well-qualified woman to be Minister of Gender Equality"
+           "title": "Appoint a well-qualified woman to lead the Senate Committee on Gender Equality"
         },
 
         { "question_id": "4",
            "title": "Boost the number of women on the Senate Committee on Health and Welfare"
         },
         { "question_id": "5",
-           "title": "Recruit more men to Ministerial positions"
+           "title": "Recruit more men to Government positions"
         },
 
         { "question_id": "6",
@@ -99,7 +113,7 @@
         },
 
         { "question_id": "7",
-           "title": "Appoint a well-qualified man to be Minister of Gender Equality"
+           "title": "Appoint a well-qualified man to lead the Senate Committee on Gender Equality"
         },
 
         { "question_id": "8",
@@ -109,7 +123,7 @@
 
     "lgbt": [
         { "question_id": "1",
-           "title": "Homosexual people"
+           "title": "Lesbian and gay people"
         },
 
         { "question_id": "2",
@@ -122,28 +136,28 @@
            "blurb": "Some people argue that same-sex marriages are harmful to society. Other people argue that same-sex marriages are beneficial to society. Still others are somewhere in between.",
            "title": "Same-sex marriage",
            "min": "Same-sex marriages are harmful to society",
-           "max": "Same-sex marriages are beneficial to society."
+           "max": "Same-sex marriages are beneficial to society"
         },
 
         { "question_id": "2",
            "blurb": "Some people argue that same-sex couples cannot successfully raise children. Other people argue that same-sex couples can successfully raise children. Still others are somewhere in between.",
            "title": "Raising children",
-           "min": "Same-sex couples cannot successfully raise children.",
-           "max": "Same-sex couples can successfully raise children."
+           "min": "Same-sex couples cannot successfully raise children",
+           "max": "Same-sex couples can successfully raise children"
         },
 
         { "question_id": "3",
-           "blurb": "Some people argue that gays and lesbians should be encouraged to run for seats in congress. Other people argue that gays and lesbians should be discouraged to run for seats in congress. Still others are somewhere in between.",
+           "blurb": "Some people argue that gay and lesbian people should be encouraged to run for seats in Congress. Other people argue that gay and lesbian people should be discouraged to run for seats in Congress. Still others are somewhere in between.",
            "title": "Running for office",
-           "min": "Gay and lesbian people should be discouraged to run for seats in congress.",
-           "max": "Gay and lesbian people should be encouraged to run for seats in congress."
+           "min": "Gay and lesbian people should be discouraged to run for seats in Congress",
+           "max": "Gay and lesbian people should be encouraged to run for seats in Congress"
         },
 
         { "question_id": "4",
-           "blurb": "Some people argue that fewer gays and lesbians should be considered for ministerial positions. Other people argue that more gays and lesbians should be considered for ministerial positions. Still others are somewhere in between. ",
-           "title": "Ministerial positions",
-           "min": "Fewer gay and lesbian people should be considered for ministerial positions.",
-           "max": "More gay and lesbian people should be considered for ministerial positions."
+           "blurb": "Some people argue that fewer gay and lesbian people should be considered for government positions. Other people argue that more gay and lesbian people should be considered for government positions. Still others are somewhere in between. ",
+           "title": "Government positions",
+           "min": "Fewer gay and lesbian people should be considered for government positions",
+           "max": "More gay and lesbian people should be considered for government positions"
         }
     ]
 

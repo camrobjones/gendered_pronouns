@@ -9,7 +9,7 @@ from django.shortcuts import render
 # Constants
 
 PRONOUNS = [["She", "Her"], ["He", "His"], ["They", "Their"]]
-TREATMENTS = ["0", "1"]
+TREATMENTS = ["0", "1", "2"]
 
 AGREE_SCALE = ["Strongly disagree", "Somewhat disagree",
                "Neither agree nor disagree", "Somewhat agree",
@@ -30,7 +30,7 @@ to the user
 
 def home(request):
     """Homepage of the site"""
-    return qualifier(request)
+    return treatment(request)
 
 
 def generic(request, key):
@@ -40,20 +40,6 @@ def generic(request, key):
 
     data = data[key]
     return render(request, f'gender/{key}.html', {'questions': data})
-
-
-def qualifier(request):
-    """Check that candidate qualifies for the experiment"""
-    return generic(request, "qualifier")
-
-
-def demographics(request):
-    """Questions about candidate demographics"""
-    with open('gender/static/gender/stimuli.json') as f:
-        data = json.load(f)
-
-    data = data['demographics']
-    return render(request, 'gender/demographics.html', {'questions': data})
 
 
 def treatment(request):
@@ -101,6 +87,20 @@ def lgbt(request):
 def lgbt_social(request):
     """Assess percieved social acceptibility of LGBT community"""
     return generic(request, "lgbt_social")
+
+
+def qualifier(request):
+    """Check that candidate qualifies for the experiment"""
+    return generic(request, "qualifier")
+
+
+def demographics(request):
+    """Questions about candidate demographics"""
+    with open('gender/static/gender/stimuli.json') as f:
+        data = json.load(f)
+
+    data = data['demographics']
+    return render(request, 'gender/demographics.html', {'questions': data})
 
 
 def finish(request):

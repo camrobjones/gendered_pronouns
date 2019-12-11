@@ -4,9 +4,27 @@
 
 <script>
 
+// Dynamically alter height of text inputs in case participants go over one line
 function adjustHeight(el) {
     // console.log(el)
     el.style.height = (el.scrollHeight + 2) + "px";
+}
+
+// Stop participants from filling in boxes in the wrong order
+function unlock(n) {
+    let inputs = document.getElementsByClassName('inline-input')
+    if (n > 0) {
+        // disable previous input
+        let prev = inputs[n-1]
+        prev.disabled = true;
+    }
+    console.log(n)
+    if (n < 2) {
+        let next = inputs[n+1]
+        next.disabled = false;
+    } else {
+        document.getElementById('next').disabled = false;
+    }
 }
 
 </script>
@@ -17,36 +35,44 @@ function adjustHeight(el) {
     The following task requires you to use your skills in visual recognition. 
 </p>
 
-<img class="treatment_stimulus" src="/static/gender/treatment_{{treatment}}.png"/>
+<img class="treatment_stimulus" src="/static/gender/stim_{{treatment}}.jpg"/>
 
 <p class="question">
-    Please use the text boxes below to describe in three sentences what the person in the image is doing. Please be as specific as possible and provide as much detail as you can.
+    Please use the text boxes below to continue the three sentences about what the person in the image is doing. Please be as specific as possible and provide as much detail as you can.
 
-    In your description of this individual, it is important that you use the pronouns “{{pronouns.0}}” and “{{pronouns.1}}. This will help to standardize the accounts provided by all participants in this survey, which will make them easier to interpret. 
+</p>
 
+<p class='treatment-container'>
+    <span class='treatment-label'> {{pronouns.0}} </span>  
+    <textarea class="inline-input" onkeyup="adjustHeight(this)" onchange="unlock(0)" required></textarea>
 </p>
 
 <p class='treatment-container'> 
     <span class='treatment-label'> {{pronouns.0}} </span> 
-    <textarea class="inline-input" onkeyup="adjustHeight(this)"></textarea>
-</p>
-
-<p class='treatment-container'> 
-    <span class='treatment-label'> {{pronouns.0}} </span> 
-    <textarea class="inline-input" onkeyup="adjustHeight(this)"></textarea>
+    <textarea class="inline-input" disabled onkeyup="adjustHeight(this)" onchange="unlock(1)" required></textarea>
 </p>
 
 <p class='treatment-container'> 
     <span class='treatment-label'> {{pronouns.1}} </span> 
-    <textarea class="inline-input" onkeyup="adjustHeight(this)"></textarea>
+    <textarea class="inline-input" disabled onkeyup="adjustHeight(this)" onchange="unlock(2)" required></textarea>
 </p>
 
 
 <div class='button-container'>
-    <input type='submit' value="Next" class='btn btn-dark' id="next">
+    <input type='submit' value="Next" class='btn btn-dark' id="next" disabled>
 </div>
 
 </form>
+
+<script>
+
+let labels = document.getElementsByClassName('treatment-label')
+let inputs = document.getElementsByClassName('inline-input')
+
+for (i=0; i<3; i++) {
+    inputs[i].style.textIndent = labels[i].offsetWidth + 5 + "px"
+}
+</script>
 
 {% endblock %}
 
