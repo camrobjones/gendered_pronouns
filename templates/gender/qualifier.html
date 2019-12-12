@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<form action="/gender/demographics">
+<form action="/gp/demographics" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="db_id" value="{{db_id}}">
 
 {% for question in questions %}
 
@@ -12,7 +14,7 @@
 
     {% for option in question.options %}
     <div class='radio-option'>
-        <input type='radio' name='{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}'/>
+        <input type='radio' name='qualifier_{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}' value="{{option}}"/>
         <label for='{{question_id}}_{{forloop.counter}}'>{{forloop.counter}}) {{option}}</label>
     </div>
 

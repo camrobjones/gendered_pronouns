@@ -6,11 +6,12 @@ urlpatterns = [
     path('', views.home),
     path('treatment', views.treatment),
     path('mediator', views.mediator),
-    path('female_politicians', views.female_politicians),
-    path('profemale', views.profemale),
+    path('leaders', views.leaders),
+    path('proposals', views.proposals),
     path('lgbt', views.lgbt),
     path('lgbt_social', views.lgbt_social),
     path('qualifier', views.qualifier),
     path('demographics', views.demographics),
-    path('finish', views.finish)
+    path('finish', views.finish),
+    path('data', views.data)
     ]

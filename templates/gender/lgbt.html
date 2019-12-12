@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<form action="/gender/lgbt_social">
+<form action="/gp/lgbt_social" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="db_id" value="{{db_id}}">
 
 <p>Next, please use the scale provided to indicate how unfavorable or favorable you feel toward the following groups or individuals. </p>
 
@@ -14,7 +16,7 @@
 
     {% for option in options %}
     <div class='radio-option'>
-        <input type='radio' name='{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}' required/>
+        <input type='radio' name='lgbt_{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}' value="{{option}}" required/>
         <label for='{{question_id}}_{{forloop.counter}}'>{{forloop.counter}}) {{option}}</label>
     </div>
 

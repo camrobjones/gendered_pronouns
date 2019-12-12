@@ -6,7 +6,23 @@
 
 - Minimum input length
 
+### General
+
+- Consent form
+- Free-text feedback
+- More demographics (State, zip?)
+- MTurk setup
+
 ## Todo
+
+- Consent form / Instructions
+    - Discourage users from going backwards
+- Add free text feedback
+
+- Email errors
+- Manipulation check question
+- Order of pairs
+- Mobile friendly
 
 - ~~Get all demographic data after~~
 - ~~DoB -> age~~
@@ -23,18 +39,11 @@
 - ~~Use pictures with inanimate entity~~
     - ~~watering a plant~~
 - ~~Different 'female politicians' section~~
-
-- discourage users from going backwards
-- Order of pairs
-- consent form
-- add free text feedback
-- Cleanse URLS
-
-- Data storage
-- Keep same random choices per session
-- Manipulation check question
-- Monitor/store timing per-Q?
-- Mobile friendly
+- ~~Cleanse URLS~~
+- ~~Data storage~~
+- ~~Download CSV~~
+- ~~Admin privileges~~
+- ~~Turk integration~~
 
 
 

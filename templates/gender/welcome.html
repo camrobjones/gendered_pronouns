@@ -1,0 +1,25 @@
+{% extends 'gender_base.html' %}
+
+{% block content %}
+
+<h3> Welcome </h3>
+
+<p> Thank you for agreeing to take part in this experiment.</p>
+
+<p> Please answer the questions in order. You will not be able to go back through the survey.</p>
+
+<p>Please review the consent form below. By taking part in the experiment you are agreeing to the form.</p>
+
+<p>Press Next whenever you are ready to continue.</p>
+
+
+
+
+<form action="/gp/treatment" method="POST">
+    <div class='button-container'>
+        <input type='submit' value="Next" class='btn btn-dark' id="next">
+    </div>
+    <input type="hidden" name="db_id" value="{{db_id}}">
+</form>
+
+{% endblock %}

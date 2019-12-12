@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<form action="/gender/lgbt">
+<form action="/gp/lgbt" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="db_id" value="{{db_id}}">
 
 <p class="question">
     You will now be presented with some proposals aimed at improving certain aspects of American society and politics. Using the response options provided, please indicate how strongly you agree or disagree with each proposal. 
@@ -16,7 +18,7 @@
 
     {% for option in options %}
     <div class='radio-option'>
-        <input type='radio' name='{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}' required/>
+        <input type='radio' name='proposals_{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}' value="{{option}}" required/>
         <label for='{{question_id}}_{{forloop.counter}}'>{{forloop.counter}}) {{option}}</label>
     </div>
 

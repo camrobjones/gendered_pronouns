@@ -71,8 +71,9 @@ nav {
     resize:none;
 }
 
-.inline-input:disabled {
+.inline-input.disabled {
     background: #dbd9d9b3;
+    pointer-events: none;
 }
 
 /* Mediator */

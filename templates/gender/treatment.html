@@ -16,12 +16,12 @@ function unlock(n) {
     if (n > 0) {
         // disable previous input
         let prev = inputs[n-1]
-        prev.disabled = true;
+        prev.classList.add("disabled");
     }
     console.log(n)
     if (n < 2) {
         let next = inputs[n+1]
-        next.disabled = false;
+        next.classList.remove("disabled");
     } else {
         document.getElementById('next').disabled = false;
     }
@@ -29,7 +29,12 @@ function unlock(n) {
 
 </script>
 
-<form action="/gender/mediator">
+<form action="/gp/mediator" method="POST">
+{% csrf_token %}
+
+<input type="hidden" name="treatment_gender" value="{{treatment}}">
+<input type="hidden" name="treatment_pronoun" value="{{pronouns.0}}">
+<input type="hidden" name="db_id" value="{{db_id}}">
 
 <p>
     The following task requires you to use your skills in visual recognition. 
@@ -44,17 +49,17 @@ function unlock(n) {
 
 <p class='treatment-container'>
     <span class='treatment-label'> {{pronouns.0}} </span>  
-    <textarea class="inline-input" onkeyup="adjustHeight(this)" onchange="unlock(0)" required></textarea>
+    <textarea class="inline-input" onkeyup="adjustHeight(this)" onchange="unlock(0)" id="treatment_1" name="treatment_1" required></textarea>
 </p>
 
 <p class='treatment-container'> 
     <span class='treatment-label'> {{pronouns.0}} </span> 
-    <textarea class="inline-input" disabled onkeyup="adjustHeight(this)" onchange="unlock(1)" required></textarea>
+    <textarea class="inline-input disabled" onkeyup="adjustHeight(this)" onchange="unlock(1)" id="treatment_1" name="treatment_2"required></textarea>
 </p>
 
 <p class='treatment-container'> 
     <span class='treatment-label'> {{pronouns.1}} </span> 
-    <textarea class="inline-input" disabled onkeyup="adjustHeight(this)" onchange="unlock(2)" required></textarea>
+    <textarea class="inline-input disabled" onkeyup="adjustHeight(this)" onchange="unlock(2)" id="treatment_2" name="treatment_3" required></textarea>
 </p>
 
 

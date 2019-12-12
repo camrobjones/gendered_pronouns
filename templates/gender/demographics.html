@@ -2,13 +2,15 @@
 
 {% block content %}
 
-<form action="/gender/finish">
+<form action="/gp/finish" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="db_id" value="{{db_id}}">
 
 <div class='question'>
 
     <h3 class='question-title'>How old are you?</h3>
 
-    <input type="number" min="0" max="120" style="width:100px" required>
+    <input type="number" min="0" max="120" style="width:100px" name="demographics_1" required>
 
 </div>
 
@@ -20,7 +22,7 @@
 
     {% for option in question.options %}
     <div class='radio-option'>
-        <input type='radio' name='{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}' required/>
+        <input type='radio' name='demographics_{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}' value="{{option}}" required/>
         <label for='{{question_id}}_{{forloop.counter}}'>{{forloop.counter}}) {{option}}</label>
     </div>
 

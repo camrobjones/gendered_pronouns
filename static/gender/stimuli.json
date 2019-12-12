@@ -38,7 +38,7 @@
                     ]
         },
 
-        { "question_id": "4",
+        { "question_id": "3",
            "title": "Generally speaking, do you think of yourself as a Democrat, Republican, an Independent, or something else?",
            "options": [
                     "Democrat",
@@ -49,7 +49,7 @@
                     ]
         },
 
-        { "question_id": "5",
+        { "question_id": "4",
            "title": "What is your gender?",
            "options":[
                     "Female",
@@ -60,7 +60,7 @@
         }
     ],
 
-    "female_politicians": [
+    "leaders": [
         { "question_id": "1",
            "title": "Please name a current member of Congress"
         },
@@ -73,22 +73,22 @@
            "title": "Please name a U.S. politician who you find inspiring"
         },
         { "question_id": "3",
-           "title": "Please name a scientist or academic"
+           "title": "Please name an active scientist or academic"
         },
 
         { "question_id": "4",
-           "title": "Please name a leader in the business world"
+           "title": "Please name a current leader in the business world"
         },
 
         { "question_id": "5",
-           "title": "Please name an author or writer who you admire"
+           "title": "Please name an active author or writer who you admire"
         },
         { "question_id": "6",
-           "title": "Please name a leader in activism or the charity sector"
+           "title": "Please name a current leader in activism or the charity sector"
         }
     ],
 
-    "profemale": [
+    "proposals": [
         { "question_id": "1",
            "title": "Recruit more women to Government positions"
         },

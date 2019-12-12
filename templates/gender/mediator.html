@@ -11,7 +11,9 @@ function adjustHeight(el) {
 
 </script>
 
-<form action="/gender/female_politicians">
+<form action="/gp/leaders" method="POST">
+    {% csrf_token %}
+<input type="hidden" name="db_id" value="{{db_id}}">
 
 <p>The next exercise requires you to use your creativity
 and composition skills.</p>
@@ -24,7 +26,7 @@ interested in running for a political office. This person is…"
 
 <p> Complete the story by giving this person a first name and describing in two sentences what happens next.</p>
 
-<textarea class="mediator-textarea" onkeyup="adjustHeight(this)" required minlength="50"></textarea>
+<textarea class="mediator-textarea" onkeyup="adjustHeight(this)" required minlength="50" name="mediator_story"></textarea>
 
 
 <div class='button-container'>
