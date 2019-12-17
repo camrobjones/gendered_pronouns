@@ -16,6 +16,7 @@
 
 
 <form action="/gp/treatment" method="POST">
+    {% csrf_token %}
     <div class='button-container'>
         <input type='submit' value="Next" class='btn btn-dark' id="next">
     </div>

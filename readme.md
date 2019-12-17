@@ -9,17 +9,17 @@
 ### General
 
 - Consent form
-- Free-text feedback
+- Free-text feedback?
 - More demographics (State, zip?)
 - MTurk setup
+    - Experiment or Survey?
+    - How much info to give?
+    - How much on MTurk how much on the website
 
 ## Todo
 
-- Consent form / Instructions
-    - Discourage users from going backwards
 - Add free text feedback
 
-- Email errors
 - Manipulation check question
 - Order of pairs
 - Mobile friendly
@@ -44,6 +44,9 @@
 - ~~Download CSV~~
 - ~~Admin privileges~~
 - ~~Turk integration~~
+- ~~Consent form / Instructions~~
+    - ~~Discourage users from going backwards~~
+- ~~Email errors~~
 
 
 

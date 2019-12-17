@@ -82,13 +82,16 @@ def home(request):
     p = Participant(ip_address=ip, start_time=timezone.now(), key=key)
     p.save()
 
-    return render(request, 'gender/welcome.html')
+    return render(request, 'gender/welcome.html', {'db_id': p.id})
 
 
 def treatment(request):
     """Shows the candidate the intervention stimulus"""
 
-    
+    # Retrieve participant db record
+    db_id = request.POST['db_id']
+    p = Participant.objects.get(id=db_id)
+
     # randomly select condition
     pronouns = random.choice(PRONOUNS)
     treatment_stimulus = random.choice(TREATMENTS)
