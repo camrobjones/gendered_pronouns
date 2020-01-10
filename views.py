@@ -85,6 +85,28 @@ def home(request):
     return render(request, 'gender/welcome.html', {'db_id': p.id})
 
 
+def consent(request):
+    """Shows the consent form"""
+
+    # Retrieve participant db record
+    db_id = request.POST['db_id']
+
+    context = {'db_id': db_id}
+
+    return render(request, 'gender/consent.html', context)
+
+
+def instructions(request):
+    """Shows the instructions"""
+
+    # Retrieve participant db record
+    db_id = request.POST['db_id']
+
+    context = {'db_id': db_id}
+
+    return render(request, 'gender/instructions.html', context)
+
+
 def treatment(request):
     """Shows the candidate the intervention stimulus"""
 

@@ -4,6 +4,8 @@ from gender import views
 
 urlpatterns = [
     path('', views.home),
+    path('consent', views.consent),
+    path('instructions', views.instructions),
     path('treatment', views.treatment),
     path('mediator', views.mediator),
     path('leaders', views.leaders),
