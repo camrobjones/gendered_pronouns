@@ -20,12 +20,16 @@ nav {
     box-shadow: 0px 0px 5px 2px #ccc;
 }
 
+#page-header {
+    margin-bottom:0px;
+}
+
 .question {
     margin: 0px 0px 25px 0px;
 }
 
 .title {
-    margin-bottom:15px;
+    margin-bottom:20px;
 }
 
 
@@ -39,6 +43,16 @@ nav {
 }
 
 #next {
+    margin-left:auto;
+    float:right;
+}
+
+#progress {
+    margin-left:auto;
+    float:right;
+}
+
+.btn-right {
     margin-left:auto;
     float:right;
 }
@@ -73,11 +87,19 @@ nav {
     flex: 1 0 auto;
     height: 2em;
     resize:none;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+    text-indent: 5px;
 }
 
-.inline-input.disabled {
+.disabled .inline-input {
     background: #dbd9d9b3;
     pointer-events: none;
+}
+
+.hidden {
+    visibility: hidden;
+    display:none;
 }
 
 /* Mediator */
@@ -125,4 +147,17 @@ blockquote {
 .range-container {
     background: #e6e6e6;
     padding: 10px;
+}
+
+/* Qualifier */
+
+#addCountryButton, #addLanguageButton {
+    margin-top:5px;
+    margin-right:5px;
+}
+
+/* feedback */
+
+textarea.feedback {
+    margin-bottom:25px;
 }

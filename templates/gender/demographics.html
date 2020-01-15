@@ -2,15 +2,47 @@
 
 {% block content %}
 
-<form action="/gp/finish" method="POST">
+<form action="/gp/post_test" method="POST">
     {% csrf_token %}
     <input type="hidden" name="db_id" value="{{db_id}}">
 
 <div class='question'>
 
-    <h3 class='question-title'>How old are you?</h3>
+    <h3 class='question-title'>In what year were you born?</h3>
 
-    <input type="number" min="0" max="120" style="width:100px" name="demographics_1" required>
+    <input type="number" min="1800" max="2020" style="width:100px" name="demographics_year" required class='form-control'>
+
+</div>
+
+<div class='question'>
+
+    <h3 class='question-title'>State and Zip code (if US)</h3>
+
+    <div class='form-row'>
+        <div class='col'>
+            <b>State</b>
+        </div>
+        <div class='col'>
+            <b>Zip</b>
+        </div>
+    </div>
+
+    <div class='form-row'>
+        <div class='col'>
+            <select name='demographics_state'>
+                <option>--Select State--</option>
+                <option>Outside US</option>
+                {% for state in states %}
+                <option>{{state}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class='col'>
+            <input type="number" min="00000" max="99999" style="width:150px" name="demographics_zip" class='form-control'>
+        </div>
+    </div>
+
+    
 
 </div>
 
@@ -22,8 +54,8 @@
 
     {% for option in question.options %}
     <div class='radio-option'>
-        <input type='radio' name='demographics_{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}' value="{{option}}" required/>
-        <label for='{{question_id}}_{{forloop.counter}}'>{{forloop.counter}}) {{option}}</label>
+        <input type='radio' name='demographics_{{question.question_id}}' id='{{question.question_id}}_{{forloop.counter}}' value="{{option}}" required/>
+        <label for='{{question.question_id}}_{{forloop.counter}}'>{{forloop.counter}}) {{option}}</label>
     </div>
 
 

@@ -6,6 +6,8 @@
     {% csrf_token %}
     <input type="hidden" name="db_id" value="{{db_id}}">
 
+<h3 class='title'>Leaders </h3>
+
 <p>In the next section, you will be asked to name individuals who can be classified under specific categories. Please answer these items as best as you can. </p>
 
 {% for question in questions %}
@@ -14,7 +16,7 @@
 
     <h3 class='question-title'>{{question.title}}</h3>
 
-    <input type='text' class='text-input' required name='leaders_{{question.question_id}}'>
+    <input type='text' class='text-input form-control' required name='leaders_{{question.question_id}}'>
 
 </div>
 

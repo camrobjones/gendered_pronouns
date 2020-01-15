@@ -6,6 +6,8 @@
     {% csrf_token %}
     <input type="hidden" name="db_id" value="{{db_id}}">
 
+<h3 class='title'>Attitudes Survey</h3>
+
 <p>Next, please use the scale provided to indicate how unfavorable or favorable you feel toward the following groups or individuals. </p>
 
 {% for question in questions %}
@@ -16,8 +18,8 @@
 
     {% for option in options %}
     <div class='radio-option'>
-        <input type='radio' name='lgbt_{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}' value="{{option}}" required/>
-        <label for='{{question_id}}_{{forloop.counter}}'>{{forloop.counter}}) {{option}}</label>
+        <input type='radio' name='lgbt_{{question.question_id}}' id='{{question.question_id}}_{{forloop.counter}}' value="{{option}}" required/>
+        <label for='{{question.question_id}}_{{forloop.counter}}'>{{forloop.counter}}) {{option}}</label>
     </div>
 
 

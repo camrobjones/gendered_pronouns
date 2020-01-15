@@ -6,6 +6,8 @@
     {% csrf_token %}
     <input type="hidden" name="db_id" value="{{db_id}}">
 
+<h3 class='title'>Attitudes Survey</h3>
+
 {% for question in questions %}
 
 <div class='question'>
@@ -27,7 +29,7 @@
         {% for i in '1234567'|make_list %}
             <div class="scale-mark">
                  <label for='{{question_id}}_{{i}}'>{{i}})</label>
-                 <input type='radio' name='lgbt_social_{{question.question_id}}' id='{{question_id}}_{{i}}' value='{{i}}' required/>
+                 <input type='radio' name='lgbt_social_{{question.question_id}}' id='{{question.question_id}}_{{i}}' value='{{i}}' required/>
             </div>
         {% endfor %}
         </div>

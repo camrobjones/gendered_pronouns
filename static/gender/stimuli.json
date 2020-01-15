@@ -26,7 +26,7 @@
     ],
 
     "demographics": [
-        { "question_id": "2",
+        { "question_id": "education",
            "title": "What is the highest level of education you have recieved?",
            "options": [
                     "I did not graduate High School",
@@ -38,7 +38,7 @@
                     ]
         },
 
-        { "question_id": "3",
+        { "question_id": "politics",
            "title": "Generally speaking, do you think of yourself as a Democrat, Republican, an Independent, or something else?",
            "options": [
                     "Democrat",
@@ -49,7 +49,7 @@
                     ]
         },
 
-        { "question_id": "4",
+        { "question_id": "gender",
            "title": "What is your gender?",
            "options":[
                     "Female",
@@ -70,21 +70,18 @@
         },
 
         { "question_id": "3",
-           "title": "Please name a U.S. politician who you find inspiring"
+           "title": "Please name a U.S. politician whom you find inspiring"
         },
-        { "question_id": "3",
-           "title": "Please name an active scientist or academic"
-        },
-
         { "question_id": "4",
-           "title": "Please name a current leader in the business world"
+           "title": "Please name an active author or writer whom you admire"
         },
 
         { "question_id": "5",
-           "title": "Please name an active author or writer who you admire"
+           "title": "Please name a successful athlete"
         },
+
         { "question_id": "6",
-           "title": "Please name a current leader in activism or the charity sector"
+           "title": "Please name a celebrity or TV personality"
         }
     ],
 

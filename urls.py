@@ -14,6 +14,7 @@ urlpatterns = [
     path('lgbt_social', views.lgbt_social),
     path('qualifier', views.qualifier),
     path('demographics', views.demographics),
+    path('post_test', views.post_test),
     path('finish', views.finish),
     path('data', views.data)
     ]

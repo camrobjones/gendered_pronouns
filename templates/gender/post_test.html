@@ -1,0 +1,73 @@
+{% extends 'gender_base.html' %}
+
+{% block content %}
+
+<script>
+
+// Dynamically alter height of text inputs in case participants go over one line
+function adjustHeight(el) {
+    // console.log(el)
+    el.style.height = (el.scrollHeight + 2) + "px";
+}
+
+</script>
+
+<form action="/gp/finish" method="POST">
+{% csrf_token %}
+
+<input type="hidden" name="db_id" value="{{db_id}}">
+
+<h3 class='title'> Recall </h3>
+
+<p>
+    Earlier you were asked you to write three sentences describing this picture. Can you remember what you wrote? 
+</p>
+
+<img class="treatment_stimulus" src="/static/gender/gp_{{gender}}.svg"/>
+
+<p class="question">
+    Please use the text boxes below to re-write the sentences as best as you can remember them.
+</p>
+
+<p class='treatment-container'>
+    <textarea class="inline-input" onkeyup="adjustHeight(this)" id="recall_1" name="recall_1" required></textarea>
+</p>
+
+<p class='treatment-container'> 
+    <span class='treatment-label'> {{pronouns.0}} </span> 
+    <textarea class="inline-input" onkeyup="adjustHeight(this)" id="recall_2" name="recall_2"required></textarea>
+</p>
+
+<p class='treatment-container'> 
+    <span class='treatment-label'> {{pronouns.1}} </span> 
+    <textarea class="inline-input" onkeyup="adjustHeight(this)" id="recall_3" name="recall_3" required></textarea>
+</p>
+
+<br/>
+
+<h3 class='title'>Feedback</h3>
+
+<p>
+What did you think this part of the experiment was about?
+</p>
+<textarea class="form-control feedback" id="feedback_1" name="feedback_1" required></textarea>
+
+<p>
+Do you have any other feedback or thoughts on the experiment?
+</p>
+<textarea class="form-control feedback" id="feedback_2" name="feedback_2"></textarea>
+
+
+<div class='button-container'>
+    <input type='submit' value="Next" class='btn btn-dark' id="next">
+</div>
+
+</form>
+
+<script>
+
+setIndents();
+</script>
+
+{% endblock %}
+

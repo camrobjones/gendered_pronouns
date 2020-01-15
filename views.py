@@ -12,11 +12,21 @@ from django.utils import timezone
 from django.contrib.auth.decorators import user_passes_test
 
 from gender.models import Participant
+from gender.data import COUNTRIES, LANGUAGES, STATES
 
 # Constants
 
 PRONOUNS = [["She", "Her"], ["He", "His"], ["They", "Their"]]
 TREATMENTS = ["neutral", "female", "male"]
+PRONOUN_TREATMENT_COMBINATIONS = [
+    ["neutral", ["She", "Her"]],
+    ["neutral", ["He", "His"]],
+    ["neutral", ["They", "Their"]],
+    ["female", ["She", "Her"]],
+    ["female", ["They", "Their"]],
+    ["male", ["He", "His"]],
+    ["male", ["They", "Their"]]
+]
 
 AGREE_SCALE = ["Strongly disagree", "Somewhat disagree",
                "Neither agree nor disagree", "Somewhat agree",
@@ -60,6 +70,7 @@ def store_data(request, key):
 def is_admin(user):
     return user.is_superuser
 
+
 """
 View Functions
 ---------
@@ -89,7 +100,7 @@ def consent(request):
     """Shows the consent form"""
 
     # Retrieve participant db record
-    db_id = request.POST['db_id']
+    db_id = store_data(request, 'welcome')
 
     context = {'db_id': db_id}
 
@@ -100,7 +111,7 @@ def instructions(request):
     """Shows the instructions"""
 
     # Retrieve participant db record
-    db_id = request.POST['db_id']
+    db_id = store_data(request, 'consent')
 
     context = {'db_id': db_id}
 
@@ -111,12 +122,13 @@ def treatment(request):
     """Shows the candidate the intervention stimulus"""
 
     # Retrieve participant db record
-    db_id = request.POST['db_id']
+    db_id = store_data(request, 'instructions')
     p = Participant.objects.get(id=db_id)
 
     # randomly select condition
-    pronouns = random.choice(PRONOUNS)
-    treatment_stimulus = random.choice(TREATMENTS)
+    # pronouns = random.choice(PRONOUNS)
+    # treatment_stimulus = random.choice(TREATMENTS)
+    treatment_stimulus, pronouns = random.choice(PRONOUN_TREATMENT_COMBINATIONS)
 
     context = {'pronouns': pronouns, "treatment": treatment_stimulus,
                'db_id': p.id}
@@ -167,7 +179,10 @@ def lgbt_social(request):
 def qualifier(request):
     """Check that candidate qualifies for the experiment"""
     db_id = store_data(request, 'lgbt_social')
-    return generic(request, "qualifier", db_id)
+
+    context = {"db_id": db_id, 'countries': COUNTRIES,
+               'languages': LANGUAGES}
+    return render(request, 'gender/qualifier.html', context)
 
 
 def demographics(request):
@@ -177,19 +192,31 @@ def demographics(request):
         data = json.load(f)
 
     data = data['demographics']
-    context = {'questions': data, "db_id": db_id}
+    context = {'questions': data, "db_id": db_id, "states": STATES}
     return render(request, 'gender/demographics.html', context)
+
+
+def post_test(request):
+    """Post test questionnaire to check participant's understanding
+    of the experiment"""
+    db_id = store_data(request, 'demographics')
+    participant = Participant.objects.get(id=db_id)
+    gender = participant.treatment_gender
+    context = {'db_id': db_id, 'gender': gender}
+    return render(request, 'gender/post_test.html', context)
 
 
 def finish(request):
     """End of experiment"""
-    db_id = store_data(request, 'demographics')
+    db_id = store_data(request, 'feedback')
     p = Participant.objects.get(id=db_id)
     context = {'key': p.key}
     return render(request, "gender/finish.html", context)
 
+
 @user_passes_test(is_admin)
 def data(request):
+    """Return a csv of participant data"""
     fields = Participant._meta.fields
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="data.csv"'
@@ -199,8 +226,6 @@ def data(request):
     writer.writerow(row)
     for obj in Participant.objects.all():
         row = [getattr(obj, field.name) for field in fields]
-        # for field in fields:
-        #     row += getattr(obj, field.name) + ","
         writer.writerow(row)
 
     return response

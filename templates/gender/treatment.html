@@ -4,27 +4,46 @@
 
 <script>
 
+// function to set indent on text inputs
+function setIndents() {
+    let labels = document.getElementsByClassName('treatment-label')
+    let inputs = document.getElementsByClassName('inline-input')
+
+    for (i=0; i<3; i++) {
+        inputs[i].style.textIndent = labels[i].offsetWidth + 6 + "px"
+    }
+}
+
 // Dynamically alter height of text inputs in case participants go over one line
 function adjustHeight(el) {
     // console.log(el)
     el.style.height = (el.scrollHeight + 2) + "px";
 }
 
+var container_n = 0
+
 // Stop participants from filling in boxes in the wrong order
-function unlock(n) {
-    let inputs = document.getElementsByClassName('inline-input')
-    if (n > 0) {
+function unlock() {
+    let inputs = document.getElementsByClassName('treatment-container')
+    // if (n > 0) {
         // disable previous input
-        let prev = inputs[n-1]
-        prev.classList.add("disabled");
+    let prev = inputs[container_n]
+    if (prev.lastElementChild.value.length == 0) {
+        alert("Please complete the sentence.");
+        return false;
     }
-    console.log(n)
-    if (n < 2) {
-        let next = inputs[n+1]
-        next.classList.remove("disabled");
-    } else {
-        document.getElementById('next').disabled = false;
+    prev.classList.add("disabled");
+    // }
+    console.log(container_n)
+    // if (container_n < 2) {
+    let next = inputs[container_n+1]
+    next.classList.remove("hidden");
+    if (container_n == 1) {
+        document.getElementById('next').classList.remove("hidden");
+        document.getElementById('progress').classList.add("hidden");
     }
+    setIndents();
+    container_n += 1;
 }
 
 </script>
@@ -36,47 +55,46 @@ function unlock(n) {
 <input type="hidden" name="treatment_pronoun" value="{{pronouns.0}}">
 <input type="hidden" name="db_id" value="{{db_id}}">
 
+<h3 class='title'> Picture Description Task </h3>
+
 <p>
     The following task requires you to use your skills in visual recognition. 
 </p>
 
-<img class="treatment_stimulus" src="/static/gender/stim_{{treatment}}.jpg"/>
+<img class="treatment_stimulus" src="/static/gender/gp_{{treatment}}.svg"/>
 
 <p class="question">
-    Please use the text boxes below to continue the three sentences about what the person in the image is doing. Please be as specific as possible and provide as much detail as you can.
-
+    Please use the text boxes below to complete three sentences about what the person in the image is doing. Please be as specific as possible and provide as much detail as you can.
 </p>
+
+<p class="question"> Once you have completed each sentence, click <b>Next</b> to progress to the next sentence. </p>
 
 <p class='treatment-container'>
     <span class='treatment-label'> {{pronouns.0}} </span>  
-    <textarea class="inline-input" onkeyup="adjustHeight(this)" onchange="unlock(0)" id="treatment_1" name="treatment_1" required></textarea>
+    <textarea class="inline-input" onkeyup="adjustHeight(this)" id="treatment_1" name="treatment_1" required></textarea>
 </p>
 
-<p class='treatment-container'> 
+<p class='treatment-container hidden'> 
     <span class='treatment-label'> {{pronouns.0}} </span> 
-    <textarea class="inline-input disabled" onkeyup="adjustHeight(this)" onchange="unlock(1)" id="treatment_1" name="treatment_2"required></textarea>
+    <textarea class="inline-input" onkeyup="adjustHeight(this)" id="treatment_2" name="treatment_2"required></textarea>
 </p>
 
-<p class='treatment-container'> 
+<p class='treatment-container hidden'> 
     <span class='treatment-label'> {{pronouns.1}} </span> 
-    <textarea class="inline-input disabled" onkeyup="adjustHeight(this)" onchange="unlock(2)" id="treatment_2" name="treatment_3" required></textarea>
+    <textarea class="inline-input" onkeyup="adjustHeight(this)" id="treatment_3" name="treatment_3" required></textarea>
 </p>
 
 
 <div class='button-container'>
-    <input type='submit' value="Next" class='btn btn-dark' id="next" disabled>
+    <input type='submit' value="Next" class='btn btn-dark hidden' id="next">
+    <button type="button" class='btn btn-dark' onclick="unlock(0)" id="progress">Next</button>
 </div>
 
 </form>
 
 <script>
 
-let labels = document.getElementsByClassName('treatment-label')
-let inputs = document.getElementsByClassName('inline-input')
-
-for (i=0; i<3; i++) {
-    inputs[i].style.textIndent = labels[i].offsetWidth + 5 + "px"
-}
+setIndents();
 </script>
 
 {% endblock %}

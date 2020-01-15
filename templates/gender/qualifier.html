@@ -2,28 +2,212 @@
 
 {% block content %}
 
+<script>
+
+
+// Add a new row to the countries table
+function addCountryRow() {
+    // Get country div and current length
+    var countryBox = document.getElementById('country-box-container')
+    var len = countryBox.children.length ;
+
+    // Remove 'Add Row' button at 5 countries
+    if (len == 6) {
+        countryButton = document.getElementById('addCountryButton')
+        countryButton.disabled = true;
+        countryButton.title = "5 is the maximum number of countries"
+    }
+
+    // Create new row with HTML from template
+    var newRow = document.getElementById('country-row').innerHTML;
+    var newDiv = document.createElement('DIV');
+    newDiv.innerHTML = newRow;
+    countryBox.insertBefore(newDiv, countryBox.childNodes[len + 1]);
+
+    // Update the names of the new inputs
+    var children = newDiv.firstElementChild.children
+    var ind = len - 1;
+    children[0].firstElementChild.name = "country_" + ind
+    children[1].firstElementChild.name = "country_from_" + ind
+    children[2].firstElementChild.name = "country_to_" + ind
+}
+
+// Add a new row to the languages table
+function addLanguageRow() {
+    // Get language div and current length
+    var box = document.getElementById('language-box-container')
+    var len = box.children.length ;
+
+    // Remove 'Add Row' button at 5 countries
+    if (len == 6) {
+        var button = document.getElementById('addLanguageButton')
+        button.disabled = true;
+        button.title = "5 is the maximum number of languages"
+    }
+
+    // Create new row with HTML from template
+    var newRow = document.getElementById('language-row').innerHTML;
+    var newDiv = document.createElement('DIV');
+    newDiv.innerHTML = newRow;
+    box.insertBefore(newDiv, box.childNodes[len + 1]);
+
+    // Update the names of the new inputs
+    var children = newDiv.firstElementChild.children
+    var ind = len - 1;
+    children[0].firstElementChild.name = "language_" + ind
+    children[1].firstElementChild.name = "language_proficiency_" + ind
+}
+
+</script>
+
 <form action="/gp/demographics" method="POST">
     {% csrf_token %}
     <input type="hidden" name="db_id" value="{{db_id}}">
 
-{% for question in questions %}
+<h3 class='title'>Demographics</h3>
+
+<!-- Countries -->
 
 <div class='question'>
 
-    <h3 class='question-title'>{{question.title}}</h3>
+    <h3 class='question-title'>What countries have you lived in?</h3>
 
-    {% for option in question.options %}
-    <div class='radio-option'>
-        <input type='radio' name='qualifier_{{question.question_id}}' id='{{question_id}}_{{forloop.counter}}' value="{{option}}"/>
-        <label for='{{question_id}}_{{forloop.counter}}'>{{forloop.counter}}) {{option}}</label>
+    <div id='country-box-container'>
+        <div class='form-row'>
+            <div class='col-6'>
+                <b>Country</b>
+            </div>
+
+            <div class='col'>
+                <b>From Year</b>
+            </div>
+
+            <div class='col'>
+                <b>To Year</b>
+            </div>
+                
+        </div>
+        <div class='form-row'>
+            <div class='col-6'>
+            <select class="form-control" required name='country_1'>
+                <option></option>
+                <option>United States</option>
+                <option>-----------</option>
+                {% for country in countries %}
+                    <option>{{country.name}}</option>
+                {% endfor %}
+            </select>
+            </div>
+
+            <div class='col'>
+                <input type='number' class='form-control' name='country_from_1'>
+            </div>
+
+            <div class='col'>
+                <input type='number' class='form-control' name='country_to_1'>
+            </div>
+        </div>
+        <div class='form-row'>
+            <button type='button' id='addCountryButton' onclick="addCountryRow()" class='btn btn-dark btn-right'>Add Row</button>
+        </div>
     </div>
-
-
-    {% endfor %}
 
 </div>
 
-{% endfor %}
+<!-- Parents -->
+
+<div class='question'>
+
+    <h3 class='question-title'>Where were your parents born?</h3>
+
+    <div id='parent-box-container'>
+        <div class='form-row'>
+            <div class='col'>
+                <b>Mother</b>
+            </div>
+
+            <div class='col'>
+                <b>Father</b>
+            </div>
+                
+        </div>
+        <div class='form-row'>
+            <div class='col-6'>
+            <select class="form-control" required name='mother_country'>
+                <option></option>
+                <option>United States</option>
+                <option>-----------</option>
+                {% for country in countries %}
+                    <option>{{country.name}}</option>
+                {% endfor %}
+            </select>
+            </div>
+
+            <div class='col'>
+                <select class="form-control" required name='father_country'>
+                <option></option>
+                <option>United States</option>
+                <option>-----------</option>
+                {% for country in countries %}
+                    <option>{{country.name}}</option>
+                {% endfor %}
+            </select>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Languages -->
+
+<div class='question'>
+
+    <h3 class='question-title'>What languages do you speak?</h3>
+
+    <div id='language-box-container'>
+        <div class='form-row'>
+            <div class='col'>
+                <b>Language</b>
+            </div>
+
+            <div class='col'>
+                <b>Proficiency</b>
+            </div>
+                
+        </div>
+        <div class='form-row'>
+            <div class='col-6'>
+            <select class="form-control" required name='language_1'>
+                <option></option>
+                <option>English</option>
+                <option>-----------</option>
+                {% for language in languages %}
+                    <option value={{language.name}}>{{language.name}}</option>
+                {% endfor %}
+            </select>
+            </div>
+
+            <div class='col'>
+                <select class="form-control" required name='language_proficiency_1'>
+                    <option>5 - Native</option>
+                    <option>4 - Fluent</option>
+                    <option>3 - Conversational</option>
+                    <option>2 - Intermediate</option>
+                    <option>1 - Basic</option>
+                </select>
+            </div>
+
+        </div>
+        <div class='form-row'>
+            <button type='button' id='addLanguageButton' onclick="addLanguageRow()" class='btn btn-dark btn-right'>Add Row</button>
+        </div>
+    </div>
+
+</div>
+
+
+
 
 
 <div class='button-container'>
@@ -32,6 +216,55 @@
 
 </form>
 
+<template id='country-row'>
+    <div class='form-row'>
+            <div class='col-6'>
+            <select class="form-control">
+                <option></option>
+                <option>United States</option>
+                <option>-----------</option>
+                {% for country in countries %}
+                    <option>{{country.name}}</option>
+                {% endfor %}
+            </select>
+            </div>
+
+            <div class='col'>
+                <input type='number' class='form-control'>
+            </div>
+
+            <div class='col'>
+                <input type='number' class='form-control'>
+            </div>
+        </div>
+</template>
+
+
+<template id='language-row'>
+    <div class='form-row'>
+            <div class='col-6'>
+            <select class="form-control" name='language_1'>
+                <option></option>
+                <option>English</option>
+                <option>-----------</option>
+                {% for language in languages %}
+                    <option value={{language.name}}>{{language.name}}</option>
+                {% endfor %}
+            </select>
+            </div>
+
+            <div class='col'>
+                <select class="form-control" required name='language_proficiency_1'>
+                    <option>5 - Native</option>
+                    <option>4 - Fluent</option>
+                    <option>3 - Conversational</option>
+                    <option>2 - Intermediate</option>
+                    <option>1 - Basic</option>
+                </select>
+            </div>
+
+        </div>
+</template>
 
 {% endblock %}
 
