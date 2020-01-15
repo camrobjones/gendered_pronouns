@@ -45,8 +45,10 @@ class Participant(models.Model):
     lgbt_2 = models.TextField()
     lgbt_complete = models.DateTimeField(null=True, blank=True)
 
-    lgbt_social_1 = models.TextField()
-    lgbt_social_2 = models.TextField()
+    lgbt_social_1 = models.TextField(default="")
+    lgbt_social_2 = models.TextField(default="")
+    lgbt_social_3 = models.TextField(default="")
+    lgbt_social_4 = models.TextField(default="")
     lgbt_social_complete = models.DateTimeField(null=True, blank=True)
 
     country_1 = models.TextField(default="")
