@@ -16,7 +16,30 @@
     <div class='button-container'>
         <input type='submit' value="Next" class='btn btn-dark' id="next">
     </div>
+    <input type="hidden" id="ua_header" name="ua_header" value="">
+    <input type="hidden" id="width" name="screen_width" value="">
+    <input type="hidden" id="height" name="screen_height" value="">
     <input type="hidden" name="db_id" value="{{db_id}}">
 </form>
 
+<script>
+
+// Get info about User device and viewport
+
+function UA_data() {
+    var ua_header = navigator.userAgent;
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    document.getElementById('ua_header').value = ua_header;
+    document.getElementById('width').value = width;
+    document.getElementById('height').value = height;
+
+}
+
+UA_data();
+
+</script>
+
 {% endblock %}
+
+

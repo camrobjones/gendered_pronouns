@@ -71,17 +71,6 @@
 
         { "question_id": "3",
            "title": "Please name a U.S. politician whom you find inspiring"
-        },
-        { "question_id": "4",
-           "title": "Please name an active author or writer whom you admire"
-        },
-
-        { "question_id": "5",
-           "title": "Please name a successful athlete"
-        },
-
-        { "question_id": "6",
-           "title": "Please name a celebrity or TV personality"
         }
     ],
 

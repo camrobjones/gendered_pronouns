@@ -56,6 +56,9 @@ function addLanguageRow() {
     var ind = len - 1;
     children[0].firstElementChild.name = "language_" + ind
     children[1].firstElementChild.name = "language_proficiency_" + ind
+    children[2].firstElementChild.name = "language_learned_" + ind
+    children[3].firstElementChild.name = "language_active_" + ind
+    children[4].firstElementChild.name = "language_proportion_" + ind
 }
 
 </script>
@@ -71,6 +74,7 @@ function addLanguageRow() {
 <div class='question'>
 
     <h3 class='question-title'>What countries have you lived in?</h3>
+    <p class='question-subtitle'>Add a row for every country you have lived in for more than a year</p>
 
     <div id='country-box-container'>
         <div class='form-row'>
@@ -100,11 +104,11 @@ function addLanguageRow() {
             </div>
 
             <div class='col'>
-                <input type='number' class='form-control' name='country_from_1'>
+                <input type='number' class='form-control' name='country_from_1' placeholder="e.g. 1980">
             </div>
 
             <div class='col'>
-                <input type='number' class='form-control' name='country_to_1'>
+                <input type='number' class='form-control' name='country_to_1' placeholder="e.g. 2020">
             </div>
         </div>
         <div class='form-row'>
@@ -164,7 +168,7 @@ function addLanguageRow() {
 <div class='question'>
 
     <h3 class='question-title'>What languages do you speak?</h3>
-
+    <p class='question-subtitle'>Add a row for every language you speak.</p>
     <div id='language-box-container'>
         <div class='form-row'>
             <div class='col'>
@@ -174,10 +178,22 @@ function addLanguageRow() {
             <div class='col'>
                 <b>Proficiency</b>
             </div>
+
+            <div class='col'>
+                <b>Age first learned</b>
+            </div>
+
+            <div class='col'>
+                <b>No. of years actively spoken</b>
+            </div>
+
+            <div class='col'>
+                <b>Proportion of time used currently (%)</b>
+            </div>
                 
         </div>
         <div class='form-row'>
-            <div class='col-6'>
+            <div class='col'>
             <select class="form-control" required name='language_1'>
                 <option></option>
                 <option>English</option>
@@ -196,6 +212,18 @@ function addLanguageRow() {
                     <option>2 - Intermediate</option>
                     <option>1 - Basic</option>
                 </select>
+            </div>
+
+            <div class='col'>
+                <input type='number' class='form-control' name='language_learned_1' placeholder="e.g. 0">
+            </div>
+
+            <div class='col'>
+                <input type='number' class='form-control' name='language_active_1' placeholder="e.g. 35">
+            </div>
+
+            <div class='col'>
+                <input type='number' class='form-control' name='language_proportion_1' placeholder="e.g. 75">
             </div>
 
         </div>
@@ -242,7 +270,7 @@ function addLanguageRow() {
 
 <template id='language-row'>
     <div class='form-row'>
-            <div class='col-6'>
+            <div class='col'>
             <select class="form-control" name='language_1'>
                 <option></option>
                 <option>English</option>
@@ -261,6 +289,18 @@ function addLanguageRow() {
                     <option>2 - Intermediate</option>
                     <option>1 - Basic</option>
                 </select>
+            </div>
+
+            <div class='col'>
+                <input type='number' class='form-control' name='language_learned_1'>
+            </div>
+
+            <div class='col'>
+                <input type='number' class='form-control' name='language_active_1'>
+            </div>
+
+            <div class='col'>
+                <input type='number' class='form-control' name='language_proportion_1'>
             </div>
 
         </div>

@@ -460,7 +460,7 @@ COUNTRIES = [
         "code": "KI"
     },
     {
-        "name": "Korea, Democratic People\"S Republic of",
+        "name": "Korea, Democratic People's Republic of",
         "code": "KP"
     },
     {
@@ -476,7 +476,7 @@ COUNTRIES = [
         "code": "KG"
     },
     {
-        "name": "Lao People\"S Democratic Republic",
+        "name": "Lao People's Democratic Republic",
         "code": "LA"
     },
     {

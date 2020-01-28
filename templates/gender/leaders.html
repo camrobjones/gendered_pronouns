@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form action="/gp/proposals" method="POST">
+<form action="/gp/proposals" method="POST" autocomplete="off">
     {% csrf_token %}
     <input type="hidden" name="db_id" value="{{db_id}}">
 
