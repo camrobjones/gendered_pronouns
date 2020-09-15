@@ -71,7 +71,12 @@ def generic(request, key, db_id, page):
 
 
 def store_data(request, key):
+
+    if request.method == "GET":
+        return None
+
     db_id = request.POST['db_id']
+
     p = Participant.objects.get(id=db_id)
     for k, v in request.POST.items():
         if k not in ["csrfmiddlewaretoken", "db_id"]:
